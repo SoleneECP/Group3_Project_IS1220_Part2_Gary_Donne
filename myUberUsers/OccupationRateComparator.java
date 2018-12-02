@@ -9,9 +9,8 @@ public class OccupationRateComparator implements Comparator<Driver>{
 	 */
 	@Override
 	public int compare(Driver o1, Driver o2) {
-		return (int) o1.calculateOccupationRate()-o2.calculateOccupationRate();
+		OccupationRateVisitor visitor = new OccupationRateVisitor();
+		return (int)( o1.accept(visitor)-o2.accept(visitor));	
 	}
 	
-	
-
 }
