@@ -9,6 +9,7 @@ public class MarkComparator implements Comparator<Driver> {
  */
 	@Override
 	public int compare(Driver o1, Driver o2) {
-		return (int) (o1.getMark()-o2.getMark());
+		AverageMarkVisitor visitor = new AverageMarkVisitor();
+		return (int) (o1.accept(visitor)-o2.accept(visitor));	
 	}
 }
