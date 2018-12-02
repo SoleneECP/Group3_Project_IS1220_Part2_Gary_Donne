@@ -19,9 +19,10 @@ class TrafficStateTest {
 	@Test
 	void testGetTrafficState() {
 		Calendar calendar = Calendar.getInstance();
-		assertTrue(TrafficState.getTrafficState(calendar)==TrafficState.lowTraffic || 
-				TrafficState.getTrafficState(calendar)==TrafficState.mediumTraffic|| 
-				TrafficState.getTrafficState(calendar)==TrafficState.heavyTraffic);
+		TrafficState ts=TrafficState.getTrafficState(calendar);
+		assertTrue(ts==TrafficState.lowTraffic|| 
+				ts==TrafficState.mediumTraffic|| 
+				ts==TrafficState.heavyTraffic);
 	}
 
 }
