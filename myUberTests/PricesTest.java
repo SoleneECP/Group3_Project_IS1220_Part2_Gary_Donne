@@ -14,7 +14,7 @@ class PricesTest {
 	@Test
 	void testPrices() {
 		Prices prices = new Prices(10.0, TrafficState.lowTraffic);
-		assertTrue(prices.prices.get(RideType.UberPool)==Prices.getPrice(RideType.UberPool, 10.0,TrafficState.lowTraffic));
+		assertTrue(prices.getPrices().get(RideType.UberPool)==Prices.getPrice(RideType.UberPool, 10.0,TrafficState.lowTraffic));
 	}
 
 	@Test
