@@ -203,9 +203,8 @@ public class Driver implements Visitable {
 	}
 
 	@Override
-	public void accept(DriversOperationVisitor operation) {
-		
-		
+	public double accept(DriversOperationVisitor operation) {
+		return visitor.visit(this);
 	}
 	
 	
