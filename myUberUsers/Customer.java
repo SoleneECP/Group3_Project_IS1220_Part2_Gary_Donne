@@ -64,19 +64,20 @@ public class Customer{
 	 */
 	public Customer(Position startingpos) {
 		this.position=startingpos;
-		if (id==0) {
-			IdGenerator idgencust = IdGenerator.getInstance();
-			this.id = idgencust.getNextCustomerId();
-		}
+		IdGenerator idgencust = IdGenerator.getInstance();
+		this.id = idgencust.getNextCustomerId();
 	}
 	
 	public Customer (String name, String surname) {
 		this.name = name;
 		this.surname = surname;
-		if (id==0) {
-			IdGenerator idgencust = IdGenerator.getInstance();
-			this.id = idgencust.getNextCustomerId();
-		}
+		IdGenerator idgencust = IdGenerator.getInstance();
+		this.id = idgencust.getNextCustomerId();
+		double r=Math.random();
+		int x=(int) (-50+r*100);
+		r=Math.random();
+		int y=(int) (-50+r*100);
+		this.position = new Position(x,y);
 	}
 	
 	
@@ -233,3 +234,4 @@ public class Customer{
 	
 	
 }
+
