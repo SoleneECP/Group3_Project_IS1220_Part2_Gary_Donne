@@ -37,7 +37,7 @@ public class RideFactory {
 		ride.setBookingTime(timeOfBooking);
 				
 			
-		customer.rideOnGoing=ride;
+		customer.setRideOnGoing(ride);
 		if (rideType==RideType.UberPool){
 			if(poolList==null){
 				RideManager rideManager=new RideManager(new DistanceSorting(),new PoolRequest(ride));
