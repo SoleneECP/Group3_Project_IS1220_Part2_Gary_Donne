@@ -48,13 +48,10 @@ class PositionTest {
 	void testCalculateLength() {
 		Position p1=new Position(1.0,1.0);
 		Position p2=new Position(2.0,2.0);
-		assertTrue(calculateLength(p1,p2)==Math.sqrt(2));
+		assertTrue(p1.calculateLength(p2)==Math.sqrt(2));
 	}
 
 
-	private double calculateLength(Position p1, Position p2) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }

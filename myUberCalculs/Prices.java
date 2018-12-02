@@ -107,5 +107,15 @@ public class Prices {
 			else  {return 1.8;}
 		}
 	}
+	
+	public EnumMap<RideType, Double> getPrices() {
+		return prices;
+	}
+
+
+
+	public void setPrices(EnumMap<RideType, Double> prices) {
+		this.prices = prices;
+	}
 
 }

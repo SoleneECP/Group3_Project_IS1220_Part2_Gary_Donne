@@ -79,6 +79,11 @@ public class Driver implements Visitable {
 		this.driverState=DriverState.offline;
 		IdGenerator idgendriv = IdGenerator.getInstance();
 		this.id = idgendriv.getNextDriverId();
+		this.tableKPI=new EnumMap<DriverState,Long>(DriverState.class);
+		for (DriverState s: DriverState.values()) {
+			tableKPI.put(s,new Long(0));
+		}
+		this.lastStateChange=Calendar.getInstance();
 	}
 	
 	public Driver(String name, String surname, Car car) {
@@ -198,9 +203,8 @@ public class Driver implements Visitable {
 	}
 
 	@Override
-	public void accept(DriversOperationVisitor operation) {
-		
-		
+	public double accept(DriversOperationVisitor operation) {
+		return visitor.visit(this);
 	}
 	
 	

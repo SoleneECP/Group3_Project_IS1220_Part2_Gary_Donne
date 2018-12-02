@@ -52,9 +52,15 @@ class DistanceSortingTest {
 		Car car2 = new Car(CarType.Standard, carpos2);
 		Car car3 = new Car(CarType.Standard, carpos3);
 		//The drivers who ride the 3 cars
-		Driver driver1 = new Driver("Paul","Dupond", car1, DriverState.onDuty);
-		Driver driver2 = new Driver("Pierre","Durand",car2, DriverState.onDuty);
-		Driver driver3 = new Driver("Jean","Moulin",car3, DriverState.onDuty);
+		Driver driver1 = new Driver("Paul","Dupond");
+		Driver driver2 = new Driver("Pierre","Durand");
+		Driver driver3 = new Driver("Jean","Moulin");
+		driver1.setCarUsed(car1);
+		driver2.setCarUsed(car2);
+		driver3.setCarUsed(car3);
+		driver1.setDriverState(DriverState.onDuty);
+		driver2.setDriverState(DriverState.onDuty);
+		driver3.setDriverState(DriverState.onDuty);
 		//create the MyUberPopulation 
 		ArrayList<Driver> drivers = new ArrayList<Driver>();
 		ArrayList<Customer> customers = new ArrayList<Customer>();
@@ -124,9 +130,15 @@ class DistanceSortingTest {
 		Car car1 = new Car(CarType.Standard, carpos1);
 		Car car2 = new Car(CarType.Standard, carpos2);
 		Car car3 = new Car(CarType.Standard, carpos3);
-		Driver driver1 = new Driver("Paul","Dupond", car1, DriverState.onDuty);
-		Driver driver2 = new Driver("Pierre","Durand",car2, DriverState.onDuty);
-		Driver driver3 = new Driver("Jean","Moulin",car3, DriverState.onDuty);
+		Driver driver1 = new Driver("Paul","Dupond");
+		Driver driver2 = new Driver("Pierre","Durand");
+		Driver driver3 = new Driver("Jean","Moulin");
+		driver1.setCarUsed(car1);
+		driver2.setCarUsed(car2);
+		driver3.setCarUsed(car3);
+		driver1.setDriverState(DriverState.onDuty);
+		driver2.setDriverState(DriverState.onDuty);
+		driver3.setDriverState(DriverState.onDuty);
 		ArrayList<Driver> drivers = new ArrayList<Driver>();
 		ArrayList<Customer> customers = new ArrayList<Customer>();
 		ArrayList<Car> cars = new ArrayList<Car>();
