@@ -10,12 +10,9 @@ public class OccupationRateVisitor implements DriversOperationVisitor{
 		
 		double timeOnARide = 0;
 		double timeOnDuty = 0;
-		for ( Iterator i = driver.getTableKPI().entrySet().iterator(); i.hasNext();) {
-			 Entry couple = (Entry)i.next();
-			 DriverState driverState = (DriverState)couple.getKey();
-			 Double time = (Double)couple.getValue();
-			 if (driverState ==DriverState.onARide) { timeOnARide=time; }
-			 else if (driverState == DriverState.onDuty) { timeOnDuty=time; }
+		for ( Entry<DriverState, Long> entry :driver.getTableKPI().entrySet()) {
+			 if (entry.getKey()==DriverState.onARide) { timeOnARide=entry.getValue(); }
+			 else if (entry.getKey() == DriverState.onDuty) { timeOnDuty=entry.getValue(); }
 		}
 		return (double)timeOnARide/timeOnDuty;
 	}
