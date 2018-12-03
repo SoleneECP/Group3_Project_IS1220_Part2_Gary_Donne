@@ -30,13 +30,16 @@ public class Car {
 	 * @param carType the Type of car of the car 
 	 * @param position the current position of the car
 	 */
-	public Car (CarType carType, Position position) {
+	public Car (CarType carType) {
 		this.carType = carType;
 		this.position = position;
-		if (this.id==null) {
-			IdGenerator idgencar = IdGenerator.getInstance();
-			id = idgencar.getNextCarId(carType);
-		}
+		IdGenerator idgencar = IdGenerator.getInstance();
+		id = idgencar.getNextCarId(carType);
+		double r=Math.random();
+		int x=(int) (-50+r*100);
+		r=Math.random();
+		int y=(int) (-50+r*100);
+		this.position = new Position(x,y);
 		ArrayList<Driver> drivers = new ArrayList<Driver>();
 	}
 	
