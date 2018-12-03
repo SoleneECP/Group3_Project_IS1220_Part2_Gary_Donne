@@ -203,8 +203,20 @@ public class Driver implements Visitable {
 	}
 
 	@Override
-	public double accept(DriversOperationVisitor operation) {
+	public double accept(DriversOperationVisitor visitor) {
 		return visitor.visit(this);
+	}
+
+	public Map<Integer,Integer> getMarks() {
+		return marks;
+	}
+
+	public EnumMap<DriverState, Long> getTableKPI() {
+		return tableKPI;
+	}
+
+	public void setTableKPI(EnumMap<DriverState, Long> tableKPI) {
+		this.tableKPI = tableKPI;
 	}
 	
 	
