@@ -15,5 +15,3 @@ public class AverageMarkVisitor implements DriversOperationVisitor{
 		}
 		return (double)sumOfMarks/sumOfIterations;
 	}
-
-}
