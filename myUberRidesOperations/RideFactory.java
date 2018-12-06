@@ -26,7 +26,6 @@ public class RideFactory {
 		double length = customer.getPosition().calculateLength(destination);
 		//MyUber calculate the different prices and display them to the customer
 		Prices prices = new Prices(length, trafficState);
-		System.out.println(prices);
 		//the customer choose a ride type
 		RideType rideType= customer.choose(prices);
 		
@@ -35,8 +34,8 @@ public class RideFactory {
 		ride.setTrafficState(trafficState);
 		ride.setRideType(rideType);
 		ride.setBookingTime(timeOfBooking);
-				
-			
+		ride.setPrice(prices.getPrice(rideType));		
+		ride.setMark(-1);
 		customer.setRideOnGoing(ride);
 		if (rideType==RideType.UberPool){
 			if(poolList==null){
@@ -56,6 +55,42 @@ public class RideFactory {
 			rideManager.start();
 		}
 
+	}
+
+	public static void createARide(Customer customer, Position destination, RideType rideType, int mark) {
+		Calendar calendar = Calendar.getInstance();
+		TrafficState trafficState = TrafficState.getTrafficState(calendar);
+		double length = customer.getPosition().calculateLength(destination);
+		//MyUber calculate the price only for this ride type
+		Double price = Prices.getPrice(rideType, length, trafficState);
+		
+		Calendar timeOfBooking = calendar;
+		Ride ride=new Ride(destination,customer);
+		ride.setTrafficState(trafficState);
+		ride.setRideType(rideType);
+		ride.setBookingTime(timeOfBooking);
+		ride.setPrice(price);	
+		ride.setMark(mark);
+			
+		customer.setRideOnGoing(ride);
+		if (rideType==RideType.UberPool){
+			if(poolList==null){
+				RideManager rideManager=new RideManager(new DistanceSorting(),new PoolRequest(ride));
+				poolList=rideManager;
+				rideManager.start();
+			}
+			else{
+				synchronized(poolList.rideRequest){
+					poolList.rideRequest.add(ride);
+					poolList.rideRequest.notify();
+				}
+			}	
+		}
+		else{
+			RideManager rideManager=new RideManager(new DistanceSorting(),ride);
+			rideManager.start();
+		}
+		
 	}
 	
 }
