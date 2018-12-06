@@ -96,5 +96,10 @@ public class Car {
 	public void setCarType(CarType carType) {
 		this.carType = carType;
 	}
+
+	@Override
+	public String toString() {
+		return "Car [position=" + position + ", carType=" + carType + ", id=" + id + ", drivers using it=" + drivers + "]";
+	}
 	
 }

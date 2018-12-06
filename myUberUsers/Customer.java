@@ -98,6 +98,7 @@ public class Customer{
 	
 
 	
+
 	public void getARide(Position destination, RideType rideType, int mark){
 		synchronized(rideOnGoing) {
 			if(rideOnGoing==null) {
@@ -236,6 +237,37 @@ public class Customer{
 
 	public void setRideOnGoing(Ride rideOnGoing) {
 		this.rideOnGoing = rideOnGoing;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", surname=" + surname + ", position=" + position + ", creditCardNb="
+				+ creditCardNb + ", nbOfRides=" + nbOfRides + ", amountOfCharges=" + amountOfCharges + ", amountOfTime="
+				+ amountOfTime + ", id=" + id + "]";
 	}
 	
 	

@@ -89,11 +89,11 @@ public class RideManager extends Thread{
 		
 		//initializing the parameter of the while loop
 		Position driverPosition = rideRequest.getDriver().getPosition();
-		int minInd=0;
-		double distanceMin=Double.MAX_VALUE;
+		int minInd;
+		double distanceMin;
 		
 		//order the rides to minimize the total distance the driver will go through and fill trajectoryDistances and sortedPickUpRides
-		while(rideRequest.getRides().size()>0) {
+		while(rides.size()>0) {
 			minInd=0;
 			distanceMin=Double.MAX_VALUE;
 			for(int i=0;i<rides.size();i++) {
@@ -121,6 +121,7 @@ public class RideManager extends Thread{
 				}
 				sortedPickUpRides.remove(0);
 				rideRequest.getDriver().getCarUsed().setPosition(rides.get(0).getStartingPoint());
+				
 				rides.remove(0);
 			}
 		}

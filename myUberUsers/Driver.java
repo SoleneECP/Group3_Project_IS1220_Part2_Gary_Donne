@@ -218,6 +218,18 @@ public class Driver implements Visitable {
 	public void setTableKPI(EnumMap<DriverState, Long> tableKPI) {
 		this.tableKPI = tableKPI;
 	}
+
+	public void setMarks(Map<Integer, Integer> marks) {
+		this.marks = marks;
+	}
+
+	@Override
+	public String toString() {
+		return "Driver [name=" + name + ", surname=" + surname + ", id=" + id + ", carUsed=" + carUsed
+				+ ", driverState=" + driverState + ", tableKPI=" + tableKPI + ", amountOfCash=" + amountOfCash
+				+ ", marks=" + marks + "]";
+	}
+	
 	
 	
 }
