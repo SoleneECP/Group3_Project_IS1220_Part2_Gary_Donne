@@ -1,5 +1,7 @@
 package myUberMVC;
 
+import myUberRidesOperations.RideType;
+
 public class MyUberModel {
 	public MyUberModel(int nStandard, int nBerlin, int nVan, int nCustomers) {
 		// TODO Auto-generated constructor stub
@@ -34,7 +36,7 @@ public class MyUberModel {
 		
 	}
 
-	public void simRide(int custID, int xdest, int ydest, int timedest, String string, int driverMark) {
+	public void simRide(int custID, int xdest, int ydest, int timedest, RideType rideType, int driverMark) {
 		// TODO Auto-generated method stub
 		
 	}
