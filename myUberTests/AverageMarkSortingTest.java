@@ -53,7 +53,8 @@ class AverageMarkSortingTest {
 		Position p1 = new Position(1,1);
 		Position p2 = new Position(2,2);
 		Customer c = new Customer(p1);
-		Car car = new Car(CarType.Standard, p2);
+		Car car = new Car(CarType.Standard);
+		car.setPosition(p2);
 		ArrayList<Customer> cust = new ArrayList<Customer>();
 		ArrayList<Car> cars = new ArrayList<Car>();
 		cust.add(c);

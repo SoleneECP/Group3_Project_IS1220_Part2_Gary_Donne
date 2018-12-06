@@ -118,4 +118,10 @@ public class Prices {
 		this.prices = prices;
 	}
 
+
+
+	public double getPrice(RideType rideType) {
+		return this.prices.get(rideType);
+	}
+
 }

@@ -9,7 +9,14 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
+import myUberUsers.AverageMarkSorting;
+import myUberUsers.Car;
 import myUberUsers.CarTypeDoesntExistException;
+import myUberUsers.ChargesSorting;
+import myUberUsers.Customer;
+import myUberUsers.Driver;
+import myUberUsers.FrequencySorting;
+import myUberUsers.OccupationRateStrategy;
 
 /**
  * The view of the MVC Pattern for the MyUber System
@@ -95,38 +102,98 @@ public class MyUberView {
 				System.out.println("The File name you entered could not be found");
 			}
 			catch(CarTypeDoesntExistException e) {
-				System.out.println("The Car Type"+ e.carType + "doesnt exist");
+				System.out.println("The Car Type"+ e.getCarType() + "doesnt exist");
 			}
 		}
 		sc.close();
 	}
-	public void displayDrivers(String string) {
-		// TODO Auto-generated method stub
-		
+	
+	
+	/**
+	 * Display the drivers and their parameters sorted according to their occupation rate or their verage mark
+	 * @param sortingStrategy the sorting strategy
+	 */
+	public void displayDrivers(String sortingStrategy) {
+		if(sortingStrategy.equalsIgnoreCase("mostappreciated")) {
+			AverageMarkSorting sorting = new AverageMarkSorting();
+			for (Driver d : sorting.sortDriver()) {
+				System.out.println(d.toString());
+			}
+		}
+		else if (sortingStrategy.equalsIgnoreCase("mostoccupied")) {
+			OccupationRateStrategy sorting = new OccupationRateStrategy();
+			for(Driver d : sorting.sortDriver()) {
+				System.out.println(d.toString());
+			}
+		}
 	}
-	public void displayCustomers(String string) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Display the customers and their parameters sorted according to their amount of 
+	 * time or money spent in an Uber ride  
+	 * @param sortingStrategy the sorting strategy
+	 */
+	public void displayCustomers(String sortingStrategy) {
+		if(sortingStrategy.equalsIgnoreCase("mostfrequent")) {
+			FrequencySorting sorting = new FrequencySorting();
+			for (Customer c : sorting.sortCustomers()) {
+				System.out.println(c.toString());
+			}
+		}
+		else if(sortingStrategy.equalsIgnoreCase("mostcharged")) {
+			ChargesSorting sorting = new ChargesSorting();
+			for(Customer c : sorting.sortCustomers()) {
+				System.out.println(c.toString());
+			}
+		}
 	}
+	
+	/**
+	 * Display the total amount of money cashed by all drivers in the myUber system.
+	 * @param myUberModel
+	 */
 	public void displayTotalCashed(MyUberModel myUberModel) {
-		// TODO Auto-generated method stub
-		
+		double totalCash = 0;
+		for (Customer c : myUberModel.customers) {
+			totalCash+=c.getAmountOfCharges();
+		}
+		System.out.println(totalCash);
 	}
+	
+	/**
+	 * Display the cars and their parameters of MyUber System
+	 */
 	public void displayCars() {
-		// TODO Auto-generated method stub
-		
+		for(Car c : MyUberModel.cars) {
+			System.out.println(c.toString());
+		}
 	}
+	
+	/**
+	 * Display the customers and their parameters of MyUber System
+	 */
 	public void displayCustomers() {
-		// TODO Auto-generated method stub
-		
+		for(Customer c : MyUberModel.customers) {
+			System.out.println(c.toString());
+		}		
 	}
+	
+	/**
+	 * Display the cars, the drivers, the customers and their parameters of MyUber System
+	 * @param myUberModel
+	 */
 	public void display(MyUberModel myUberModel) {
-		// TODO Auto-generated method stub
-		
+		displayDrivers();
+		displayCustomers();
+		displayCars();
 	}
+	
+	/**
+	 * Display the drivers and their parameters of MyUber System
+	 */
 	public void displayDrivers() {
-		// TODO Auto-generated method stub
-		
+		for (Driver d : MyUberModel.drivers) {
+			System.out.println(d.toString());
+		}		
 	}
 	
 }

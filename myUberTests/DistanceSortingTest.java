@@ -48,9 +48,12 @@ class DistanceSortingTest {
 		Position carpos1 = new Position(1,1);
 		Position carpos2 = new Position(2,1);
 		Position carpos3 = new Position(5,1);
-		Car car1 = new Car(CarType.Standard, carpos1);
-		Car car2 = new Car(CarType.Standard, carpos2);
-		Car car3 = new Car(CarType.Standard, carpos3);
+		Car car1 = new Car(CarType.Standard);
+		car1.setPosition(carpos1);
+		Car car2 = new Car(CarType.Standard);
+		car2.setPosition(carpos2);
+		Car car3 = new Car(CarType.Standard);
+		car3.setPosition(carpos3);
 		//The drivers who ride the 3 cars
 		Driver driver1 = new Driver("Paul","Dupond");
 		Driver driver2 = new Driver("Pierre","Durand");
@@ -98,9 +101,11 @@ class DistanceSortingTest {
 		Position c2dest = new Position(4,1);
 		Position c3dest = new Position(1,1);
 		
-		Car car = new Car(CarType.Standard, carpos);
+		Car car = new Car(CarType.Standard);
+		car.setPosition(carpos);
 		//The driver riding the car
-		Driver driver = new Driver("Paul","Dupond",car, DriverState.onDuty);
+		Driver driver = new Driver("Paul","Dupond",car);
+		driver.setDriverState(DriverState.onDuty);
 		//The 3 customers
 		Customer c1 = new Customer(c1pos);
 		Customer c2 = new Customer(c2pos);
@@ -127,9 +132,12 @@ class DistanceSortingTest {
 		Position carpos1 = new Position(1,1);
 		Position carpos2 = new Position(2,1);
 		Position carpos3 = new Position(5,1);
-		Car car1 = new Car(CarType.Standard, carpos1);
-		Car car2 = new Car(CarType.Standard, carpos2);
-		Car car3 = new Car(CarType.Standard, carpos3);
+		Car car1 = new Car(CarType.Standard);
+		car1.setPosition(carpos1);
+		Car car2 = new Car(CarType.Standard);
+		car2.setPosition(carpos2);
+		Car car3 = new Car(CarType.Standard);
+		car3.setPosition(carpos3);
 		Driver driver1 = new Driver("Paul","Dupond");
 		Driver driver2 = new Driver("Pierre","Durand");
 		Driver driver3 = new Driver("Jean","Moulin");

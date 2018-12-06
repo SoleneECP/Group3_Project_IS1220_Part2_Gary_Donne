@@ -65,4 +65,28 @@ public enum TrafficState {
 			
 		}
 	}
+	
+	public static TrafficState getTrafficState(int date) {
+		double r = Math.random();
+		if (22<=date || date<7) {
+			if (r<0.95) {return TrafficState.lowTraffic;}
+			else if (0.95<=r && r<0.99) {return TrafficState.mediumTraffic;}
+			else {return TrafficState.heavyTraffic;}
+		}
+		else if (7<=date && date>11) {
+			if (r<0.05) {return TrafficState.lowTraffic;}
+			else if (0.05<=r && r<0.25) {return TrafficState.mediumTraffic;}
+			else {return TrafficState.heavyTraffic;}
+		}		
+		else if(11<=date && date<17) {
+			if (r<0.15) {return TrafficState.lowTraffic;}
+			else if (0.15<=r && r<0.85) {return TrafficState.mediumTraffic;}
+			else {return TrafficState.heavyTraffic;}
+		}
+		else {if (r<0.01) {return TrafficState.lowTraffic;}
+		else if (0.01<=r && r<0.05) {return TrafficState.mediumTraffic;}
+		else {return TrafficState.heavyTraffic;}
+			
+		}
+	}
 }
