@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import myUberRidesOperations.RideType;
 import myUberUsers.CarTypeDoesntExistException;
 
 /**
@@ -104,8 +105,9 @@ public class MyUberController {
 			xpos=Integer.parseInt(splitcommand[2]);
 			ypos=Integer.parseInt(splitcommand[3]);
 			time=Integer.parseInt(splitcommand[4]);
+			RideType rideType=RideType.valueOf(splitcommand[5]);
 			driverMark=Integer.parseInt(splitcommand[6]);
-			myUberModel.simRide(custID, xpos,ypos,time,splitcommand[5],driverMark);
+			myUberModel.simRide(custID, xpos,ypos,time,rideType,driverMark);
 			break;
 		case "simeRide_i":
 			custID=Integer.parseInt(splitcommand[1]);

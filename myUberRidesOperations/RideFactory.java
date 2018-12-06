@@ -26,7 +26,6 @@ public class RideFactory {
 		double length = customer.getPosition().calculateLength(destination);
 		//MyUber calculate the different prices and display them to the customer
 		Prices prices = new Prices(length, trafficState);
-		System.out.println(prices);
 		//the customer choose a ride type
 		RideType rideType= customer.choose(prices);
 		
@@ -36,7 +35,8 @@ public class RideFactory {
 		ride.setRideType(rideType);
 		ride.setBookingTime(timeOfBooking);
 		ride.setPrice(prices.getPrice(rideType));		
-			
+		ride.setMark(-1);
+
 		customer.setRideOnGoing(ride);
 		if (rideType==RideType.UberPool){
 			if(poolList==null){
@@ -62,17 +62,21 @@ public class RideFactory {
 		Calendar calendar = Calendar.getInstance();
 		TrafficState trafficState = TrafficState.getTrafficState(calendar);
 		double length = customer.getPosition().calculateLength(destination);
-		//MyUber calculate the different prices and display them to the customer
-		double price = Prices.getPrice(rideType,length,trafficState);
+
+		//MyUber calculate the price only for this ride type
+		Double price = Prices.getPrice(rideType, length, trafficState);
+
 		
 		Calendar timeOfBooking = calendar;
 		Ride ride=new Ride(destination,customer);
 		ride.setTrafficState(trafficState);
 		ride.setRideType(rideType);
 		ride.setBookingTime(timeOfBooking);
-		ride.setPrice(price);
+
+		ride.setPrice(price);	
 		ride.setMark(mark);
-				
+
+
 			
 		customer.setRideOnGoing(ride);
 		if (rideType==RideType.UberPool){

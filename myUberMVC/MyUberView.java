@@ -69,8 +69,8 @@ public class MyUberView {
 				}
 			}
 			
-			catch(RideTypeDoesntExistException e) {
-				System.out.println("this ridetype"+e.rideTypeEntered+"does not exist");
+			catch(IllegalArgumentException e) {
+				System.out.println("the rideType entered does not exist");
 				messageBox.remove(messageBox.size()-1);
 				messageAwaitingAnswer.add(messageBox);
 			}
@@ -103,6 +103,9 @@ public class MyUberView {
 			}
 			catch(CarTypeDoesntExistException e) {
 				System.out.println("The Car Type"+ e.getCarType() + "doesnt exist");
+			}
+			catch(IllegalArgumentException e) {
+				System.out.println("The rideType entered doesn't exists");
 			}
 		}
 		sc.close();

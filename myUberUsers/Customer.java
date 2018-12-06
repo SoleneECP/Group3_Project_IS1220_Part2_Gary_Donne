@@ -96,12 +96,13 @@ public class Customer{
 		}
 	}
 	
+
 	
-	
+
 	public void getARide(Position destination, RideType rideType, int mark){
 		synchronized(rideOnGoing) {
 			if(rideOnGoing==null) {
-				RideFactory.createARide(this,destination, rideType, mark);
+				RideFactory.createARide(this,destination,rideType,mark);
 				}
 			else {
 				System.out.println("This Customer is already or has already asked for a ride");

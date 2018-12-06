@@ -1,5 +1,8 @@
 package myUberMVC;
 
+
+import myUberRidesOperations.RideType;
+
 import java.util.ArrayList;
 
 import myUberCalculs.Position;
@@ -237,6 +240,7 @@ public class MyUberModel {
 		MyUberModel.customers=customers;
 		MyUberModel.cars=cars;
 	}
+
 
 	public static ArrayList<Driver> getDrivers() {
 		return drivers;
